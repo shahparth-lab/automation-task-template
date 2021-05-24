@@ -46,6 +46,7 @@
                     "type": "String",
                     "metadata": {
                         "displayName": "Notify me on",
+                        "defaultValue": "user@contoso.com",
                         "required": true,
                         "description": "Enter email id to be notified on"
                     }
