@@ -44,7 +44,6 @@
                 },
                 "emailTo": {
                     "type": "String",
-                    "defaultValue": "user@contoso.com",
                     "metadata": {
                         "displayName": "Notify me on",
                         "required": true,
