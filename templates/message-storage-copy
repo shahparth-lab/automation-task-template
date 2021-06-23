@@ -1,0 +1,103 @@
+{
+    "id": "Copy_message_from_service_bus_to_storage",
+    "title": "Copy message from service bus to storage",
+    "description": "When a new message arrives in service bus queue, create a blob in storage account",
+    "iconType": "Event",
+    "data": {
+        "definition": {
+            "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+            "actions": {
+                "Create_blob": {
+                    "inputs": {
+                        "body": "@base64ToBinary(triggerBody()?['ContentData'])",
+                        "host": {
+                            "connection": {
+                                "name": "@parameters('$connections')['azureblob']['connectionId']"
+                            }
+                        },
+                        "method": "post",
+                        "path": "/datasets/default/files",
+                        "queries": {
+                            "folderPath": "container",
+                            "name": "svc-bus-msg-@{guid()}",
+                            "queryParametersSingleEncoded": true
+                        }
+                    },
+                    "runAfter": {},
+                    "runtimeConfiguration": {
+                        "contentTransfer": {
+                            "transferMode": "Chunked"
+                        }
+                    },
+                    "type": "ApiConnection"
+                }
+            },
+            "contentVersion": "1.0.0.0",
+            "outputs": {},
+            "parameters": {
+                "$connections": {
+                    "defaultValue": {},
+                    "type": "Object"
+                },
+                "Container ": {
+                    "type": "String",
+                    "defaultValue": "container",
+                    "metadata": {
+                        "displayName": "Container name",
+                        "required": false,
+                        "description": "Container where blob will be created"
+                    }
+                },
+                "Queue name": {
+                    "type": "String",
+                    "defaultValue": "queue",
+                    "metadata": {
+                        "displayName": "Queue",
+                        "required": false,
+                        "description": "Queue where new messages will appear"
+                    }
+                }
+            },
+            "triggers": {
+                "When_a_message_is_received_in_a_queue_(auto-complete)": {
+                    "inputs": {
+                        "host": {
+                            "connection": {
+                                "name": "@parameters('$connections')['servicebus']['connectionId']"
+                            }
+                        },
+                        "method": "get",
+                        "path": "/@{encodeURIComponent(encodeURIComponent('approvalqueue'))}/messages/head",
+                        "queries": {
+                            "queueType": "Main"
+                        }
+                    },
+                    "recurrence": {
+                        "frequency": "Minute",
+                        "interval": 3
+                    },
+                    "type": "ApiConnection"
+                }
+            }
+        },
+        "parameters": {
+            "$connections": {
+                "value": {
+                    "azureblob": {
+                        "connectionId": "",
+                        "connectionName": "",
+                        "id": "/subscriptions/80d4fe69-c95b-4dd2-a938-9250f1c8ab03/providers/Microsoft.Web/locations/westus/managedApis/azureblob"
+                    },
+                    "servicebus": {
+                        "connectionId": "",
+                        "connectionName": "",
+                        "id": "/subscriptions/80d4fe69-c95b-4dd2-a938-9250f1c8ab03/providers/Microsoft.Web/locations/westus/managedApis/servicebus"
+                    }
+                }
+            }
+        }
+    },
+    "supportedResources": [
+        "Microsoft.ServiceBus/namespaces"
+    ]
+}
