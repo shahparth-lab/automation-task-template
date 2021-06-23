@@ -1,5 +1,5 @@
 {
-    "id": "Copy_message_from_service_bus_to_storage",
+    "id": "message-storage-copy",
     "title": "Copy message from service bus to storage",
     "description": "When a new message arrives in service bus queue, create a blob in storage account",
     "iconType": "Event",
