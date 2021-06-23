@@ -86,12 +86,12 @@
                     "azureblob": {
                         "connectionId": "",
                         "connectionName": "",
-                        "id": "/subscriptions/80d4fe69-c95b-4dd2-a938-9250f1c8ab03/providers/Microsoft.Web/locations/westus/managedApis/azureblob"
+                        "id": "/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Web/locations/westus/managedApis/azureblob"
                     },
                     "servicebus": {
                         "connectionId": "",
                         "connectionName": "",
-                        "id": "/subscriptions/80d4fe69-c95b-4dd2-a938-9250f1c8ab03/providers/Microsoft.Web/locations/westus/managedApis/servicebus"
+                        "id": "/subscriptions/00000000-0000-0000-0000-0000000000003/providers/Microsoft.Web/locations/westus/managedApis/servicebus"
                     }
                 }
             }
