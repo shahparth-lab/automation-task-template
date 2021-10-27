@@ -11,7 +11,7 @@
                 "Replicate_messages": {
                     "inputs": {
                         "parameters": {
-                            "entityName": "@parameters('{taskName}_targetQueue')",
+                            "entityName": "@parameters('{taskName}_targetTopic')",
                             "skipAlreadyReplicated": false
                         },
                         "serviceProviderConfiguration": {
@@ -61,18 +61,25 @@
             }
         },
         "parameters": {
-            "{taskName}_sourceQueue": {
+            "{taskName}_sourceTopic": {
                 "type": "String",
                 "metadata": {
                     "required": true,
-                    "displayName": "Source queue name"
+                    "displayName": "Source Topic name"
                 }
             },
-            "{taskName}_targetQueue": {
+            "{taskName}_sourceTopicSub": {
                 "type": "String",
                 "metadata": {
                     "required": true,
-                    "displayName": "Target queue name"
+                    "displayName": "Source Topic Subscription"
+                }
+            },
+            "{taskName}_targetTopic": {
+                "type": "String",
+                "metadata": {
+                    "required": true,
+                    "displayName": "Target Topic name"
                 }
             }
         },
