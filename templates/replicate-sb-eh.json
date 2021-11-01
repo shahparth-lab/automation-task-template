@@ -47,7 +47,7 @@
             "serviceProviderConnections": {
                 "{taskName}_source": {
                     "serviceProvider": {
-                        "id": "/serviceProviders/eventHub"
+                        "id": "/serviceProviders/serviceBus"
                     },
                     "metadata": {
                         "isLinkedToResource": true
@@ -55,7 +55,7 @@
                 },
                 "{taskName}_target": {
                     "serviceProvider": {
-                        "id": "/serviceProviders/serviceBus"
+                        "id": "/serviceProviders/eventHub"
                     }
                 }
             }
