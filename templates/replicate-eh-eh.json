@@ -30,8 +30,7 @@
                 "When_events_are_available_for_replication": {
                     "inputs": {
                         "parameters": {
-                            "eventHubName": "@parameters('{taskName}_sourceInstance')",
-                            "consumerGroup": "@parameters('{taskName}_consumerGroup')"
+                            "eventHubName": "@parameters('{taskName}_sourceInstance')"
                         },
                         "serviceProviderConfiguration": {
                             "connectionName": "{taskName}_source",
@@ -66,13 +65,6 @@
                 "metadata": {
                     "required": true,
                     "displayName": "Source event hub instance"
-                }
-            },
-            "{taskName}_consumerGroup": {
-                "type": "String",
-                "metadata": {
-                    "required": false,
-                    "displayName": "Consumer group"
                 }
             },
             "{taskName}_targetInstance": {
