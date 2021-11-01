@@ -9,5 +9,6 @@
     "copy-svcbus-storage.json",
     "replicate-sb-sb.json",
     "replicate-eh-eh.json",
-    "replicate-topic-topic.json"
+    "replicate-topic-topic.json",
+    "replicate-sb-eh.json"
 ]
