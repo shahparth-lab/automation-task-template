@@ -1,7 +1,7 @@
 {
     "id": "replicate-from-sb-to-sb",
-    "description": "Replicate content from this namespace to target Service Bus namespace.",
-    "title": "Replicate to Service Bus",
+    "description": "When messages appear in a queue, replicate to another queue",
+    "title": "Replicate from Service Bus queue to Service Bus queue",
     "iconType": "Event",
     "skuType": "Standard",
     "data": {
